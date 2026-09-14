@@ -37,7 +37,7 @@ export default function FlashcardView({ cards, title }) {
   const currentCard = cards[currentIndex];
 
   return (
-    <div className="max-w-xl mx-auto px-2 sm:px-0 space-y-6 select-none">
+    <div className="max-w-xl mx-auto px-3 sm:px-0 space-y-6 select-none w-full overflow-x-clip">
       <div className="text-center">
         <span className="text-xs font-bold tracking-wider text-emerald-400 uppercase bg-emerald-950/60 border border-emerald-800/60 px-2.5 py-1 rounded-md">
           Tarjetas de Memorización
@@ -50,13 +50,12 @@ export default function FlashcardView({ cards, title }) {
 
       {/* Contenedor con Perspectiva 3D */}
       <div
-        className="perspective-1000 w-full cursor-pointer"
+        className="perspective-1000 w-full max-w-full cursor-pointer overflow-hidden py-2"
         onClick={() => setIsFlipped(!isFlipped)}
       >
         <div
-          className={`relative w-full min-h-[320px] transition-transform duration-500 transform-style-3d ${
-            isFlipped ? 'rotate-y-180' : ''
-          }`}
+          className={`relative w-full min-h-[320px] transition-transform duration-500 transform-style-3d ${isFlipped ? 'rotate-y-180' : ''
+            }`}
         >
           {/* CARA FRONTAL (Pregunta) */}
           <div className="absolute inset-0 w-full h-full backface-hidden bg-slate-900 border border-slate-800 hover:border-slate-700 rounded-3xl p-6 sm:p-8 flex flex-col justify-between shadow-2xl">

@@ -76,7 +76,8 @@ export const clase2 = {
       correct: 1,
       explanation: "El sonido es una vibración mecánica que depende de la colisión entre partículas de un medio elástico.",
       image: {
-        url: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&auto=format&fit=crop&q=80",
+        placeholder: true,
+        url: "",
         caption: "En el vacío espacial no existen moléculas que permitan la propagación mecánica."
       }
     },
@@ -92,8 +93,9 @@ export const clase2 = {
       correct: 2,
       explanation: "La proximidad y enlace de las moléculas en sólidos permite transferir la energía cinética mucho más rápido que en gases.",
       image: {
-        url: "https://images.unsplash.com/photo-1474487548417-781cb71495f3?w=800&auto=format&fit=crop&q=80",
-        caption: "Los rieles metálicos conducen el sonido a gran velocidad frente a la menor densidad del aire."
+        placeholder: true,
+        url: "",
+        caption: "Comparación de velocidad de propagación de la onda sonora: aire vs. sólidos."
       }
     },
     {
@@ -108,8 +110,9 @@ export const clase2 = {
       correct: 1,
       explanation: "El espectro perceptible estándar abarca desde 20 Hz (subgraves) hasta 20 kHz (agudos extremos).",
       image: {
-        url: "https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=800&auto=format&fit=crop&q=80",
-        caption: "Espectro audible de 20 Hz a 20 kHz."
+        placeholder: true,
+        url: "",
+        caption: "Gráfica del espectro audible humano de 20 Hz a 20 kHz."
       }
     },
     {
@@ -124,8 +127,9 @@ export const clase2 = {
       correct: 1,
       explanation: "El enmascaramiento se produce cuando dos señales ocupan la misma zona del espectro, ocultándose mutuamente.",
       image: {
-        url: "https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?w=800&auto=format&fit=crop&q=80",
-        caption: "Separación espectral entre elementos percusivos y armónicos en mezcla."
+        placeholder: true,
+        url: "",
+        caption: "Curvas espectrales solapadas ilustrando el enmascaramiento entre bombo y bajo."
       }
     },
     {
@@ -140,8 +144,9 @@ export const clase2 = {
       correct: 1,
       explanation: "El timbre es la huella digital acústica compuesta por los armónicos y formantes característicos del instrumento.",
       image: {
-        url: "https://images.unsplash.com/photo-1520523839898-50712825e3a7?w=800&auto=format&fit=crop&q=80",
-        caption: "El contenido armónico define el timbre distintivo de cada fuente sonora."
+        placeholder: true,
+        url: "",
+        caption: "Espectrograma comparativo de armónicos entre piano y guitarra para una misma nota."
       }
     },
     {
@@ -156,8 +161,9 @@ export const clase2 = {
       correct: 1,
       explanation: "La cápsula genera una señal milivoltica (mic level) que el preamplificador eleva a nivel de línea.",
       image: {
-        url: "https://images.unsplash.com/photo-1598653222000-6b7b7a552625?w=800&auto=format&fit=crop&q=80",
-        caption: "Etapa de preamplificación y ganancia de señal."
+        placeholder: true,
+        url: "",
+        caption: "Diagrama de ganancia de señal: Nivel de micrófono (Mic Level) a Nivel de línea (Line Level)."
       }
     },
     {
@@ -172,8 +178,9 @@ export const clase2 = {
       correct: 1,
       explanation: "Los micrófonos de condensador requieren voltaje externo para polarizar la cápsula y alimentar su circuito interno.",
       image: {
-        url: "https://images.unsplash.com/photo-1590602847861-f357a9332bbc?w=800&auto=format&fit=crop&q=80",
-        caption: "Micrófono de condensador para voz que opera con alimentación Phantom (+48V)."
+        placeholder: true,
+        url: "",
+        caption: "Diagrama de polarización de placa fija y diafragma con alimentación Phantom +48V."
       }
     },
     {
@@ -188,8 +195,9 @@ export const clase2 = {
       correct: 0,
       explanation: "Los dinámicos poseen diafragmas y bobinas resistentes aptos para fuentes de alto SPL sin saturar ni deteriorarse.",
       image: {
-        url: "https://images.unsplash.com/photo-1519892300165-cb5542fb47c7?w=800&auto=format&fit=crop&q=80",
-        caption: "Micrófono dinámico robusto para instrumentos con transitorios intensos."
+        placeholder: true,
+        url: "",
+        caption: "Corte transversal de un micrófono dinámico de bobina móvil frente a altas presiones acústicas."
       }
     },
     {
@@ -204,8 +212,9 @@ export const clase2 = {
       correct: 1,
       explanation: "Los auxiliares procesan en paralelo sin cortar la señal principal; los buses consolidan pistas en grupo.",
       image: {
-        url: "https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?w=800&auto=format&fit=crop&q=80",
-        caption: "Ruteo de mezcla: procesamiento paralelo vs sumatoria de buses."
+        placeholder: true,
+        url: "",
+        caption: "Esquema de flujo de señal: Envío auxiliar en paralelo vs. sumatoria en bus de grupo."
       }
     },
     {
@@ -220,8 +229,9 @@ export const clase2 = {
       correct: 1,
       explanation: "La angulación elevada desvía la columna directa de aire fuera del diafragma manteniendo claridad.",
       image: {
-        url: "https://images.unsplash.com/photo-1516280440614-37939bbacd81?w=800&auto=format&fit=crop&q=80",
-        caption: "Posicionamiento vocal profesional con filtro antipop a 15 cm."
+        placeholder: true,
+        url: "",
+        caption: "Diagrama de angulación y distancia recomendada frente al eje del micrófono para disipar plosivas."
       }
     }
   ],
@@ -230,16 +240,18 @@ export const clase2 = {
       front: "¿Qué es el sonido físicamente?",
       back: "Una vibración mecánica que se propaga a través de un medio elástico (aire, agua o sólidos).",
       image: {
-        url: "https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=800&auto=format&fit=crop&q=80",
-        caption: "Onda acústica en propagación física."
+        placeholder: true,
+        url: "",
+        caption: "Onda de presión mecánica oscilando a través de partículas."
       }
     },
     {
       front: "¿Por qué no hay sonido en el vacío?",
       back: "Porque no existen partículas materiales o moléculas cuya vibración transmita la perturbación mecánica.",
       image: {
-        url: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&auto=format&fit=crop&q=80",
-        caption: "En el vacío no hay soporte físico para la vibración."
+        placeholder: true,
+        url: "",
+        caption: "Ausencia de medio elástico en el espacio exterior."
       }
     },
     {
@@ -266,8 +278,9 @@ export const clase2 = {
       front: "¿Qué constituye el timbre de un instrumento?",
       back: "La frecuencia fundamental sumada al conjunto particular de armónicos y formantes característicos de la fuente.",
       image: {
-        url: "https://images.unsplash.com/photo-1520523839898-50712825e3a7?w=800&auto=format&fit=crop&q=80",
-        caption: "Estructura armónica sobre la frecuencia fundamental."
+        placeholder: true,
+        url: "",
+        caption: "Estructura de sobretonos y armónicos que definen el timbre."
       }
     },
     {
@@ -282,8 +295,9 @@ export const clase2 = {
       front: "¿Cuál es la función del preamplificador?",
       back: "Amplificar la débil señal de micrófono al voltaje estándar de trabajo de línea (Line Level) con la menor distorsión y ruido posibles.",
       image: {
-        url: "https://images.unsplash.com/photo-1598653222000-6b7b7a552625?w=800&auto=format&fit=crop&q=80",
-        caption: "Etapa de preamplificación analógica profesional."
+        placeholder: true,
+        url: "",
+        caption: "Preamplificador analógico elevando la ganancia operativa."
       }
     },
     {
@@ -294,16 +308,18 @@ export const clase2 = {
       front: "¿Por qué los micrófonos dinámicos son tan usados en baterías?",
       back: "Por su bobina móvil resistente que tolera picos extremos de presión sonora (SPL) sin saturar internamente ni romperse.",
       image: {
-        url: "https://images.unsplash.com/photo-1519892300165-cb5542fb47c7?w=800&auto=format&fit=crop&q=80",
-        caption: "Cápsula dinámica frente a fuentes de alta presión."
+        placeholder: true,
+        url: "",
+        caption: "Microfonía dinámica posicionada sobre parches de alta pegada."
       }
     },
     {
       front: "¿Por qué el micrófono de condensador requiere Phantom Power (+48V)?",
       back: "Para cargar electrostáticamente el condensador de la cápsula y alimentar su etapa preamplificadora interna activa.",
       image: {
-        url: "https://images.unsplash.com/photo-1590602847861-f357a9332bbc?w=800&auto=format&fit=crop&q=80",
-        caption: "Micrófono de condensador de estudio."
+        placeholder: true,
+        url: "",
+        caption: "Circuito interno de condensador con polarización activa +48V."
       }
     },
     {
@@ -322,8 +338,9 @@ export const clase2 = {
       front: "¿Cuál es la distancia recomendada para grabar voces?",
       back: "Entre 10 y 20 cm respecto a la cápsula, manteniendo control de tono y rango dinámico.",
       image: {
-        url: "https://images.unsplash.com/photo-1516280440614-37939bbacd81?w=800&auto=format&fit=crop&q=80",
-        caption: "Distancia óptima de trabajo vocal en cabina."
+        placeholder: true,
+        url: "",
+        caption: "Separación y distancia de trabajo vocal frente a la cápsula."
       }
     },
     {

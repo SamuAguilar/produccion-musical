@@ -79,8 +79,8 @@ export default function QuizView({ questions, title }) {
 
   const isCorrect = selectedOption === currentQ.correct;
 
-  return (
-    <div className="max-w-2xl mx-auto space-y-5 px-2 sm:px-0">
+return (
+    <div className="max-w-2xl mx-auto space-y-5 px-3 sm:px-0 w-full overflow-x-hidden">
       {/* Barra de progreso */}
       <div className="space-y-2">
         <div className="flex justify-between items-center text-xs font-semibold text-slate-400">
