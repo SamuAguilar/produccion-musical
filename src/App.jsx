@@ -32,37 +32,39 @@ export default function App() {
           </div>
         </div>
 
-        {/* Controles visibles únicamente cuando se está dentro de una clase */}
+{/* Controles visibles únicamente cuando se está dentro de una clase */}
         {selectedClassId && (
-          <div className="flex items-center gap-3 ml-auto sm:ml-0">
-            {/* Botón para volver a la galería */}
-            <button
-              onClick={() => setSelectedClassId(null)}
-              className="text-xs bg-slate-800 hover:bg-slate-700 text-slate-300 px-3 py-2 rounded-xl border border-slate-700 transition"
-            >
-              ← Galería
-            </button>
+          <div className="w-full sm:w-auto flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 mt-2 sm:mt-0">
+            <div className="flex items-center gap-2 w-full sm:w-auto">
+              {/* Botón para volver a la galería */}
+              <button
+                onClick={() => setSelectedClassId(null)}
+                className="shrink-0 text-xs bg-slate-800 hover:bg-slate-700 text-slate-300 px-3 py-2 rounded-xl border border-slate-700 transition"
+              >
+                ← Galería
+              </button>
 
-            {/* Selector directo de clase */}
-            <select
-              value={selectedClassId}
-              onChange={(e) => handleSelectClass(e.target.value)}
-              className="bg-slate-800 border border-slate-700 text-white text-xs sm:text-sm rounded-xl px-3 py-2 outline-none focus:border-emerald-500 transition cursor-pointer"
-            >
-              {Object.keys(classesData).map((id) => (
-                <option key={id} value={id}>
-                  Clase {id}: {classesData[id].title.slice(0, 20)}...
-                </option>
-              ))}
-            </select>
+              {/* Selector directo de clase */}
+              <select
+                value={selectedClassId}
+                onChange={(e) => handleSelectClass(e.target.value)}
+                className="flex-1 sm:w-48 bg-slate-800 border border-slate-700 text-white text-xs rounded-xl px-2.5 py-2 outline-none focus:border-emerald-500 transition cursor-pointer truncate"
+              >
+                {Object.keys(classesData).map((id) => (
+                  <option key={id} value={id}>
+                    Clase {id}: {classesData[id].title.slice(0, 20)}...
+                  </option>
+                ))}
+              </select>
+            </div>
 
-            {/* Switch de 3 Modos */}
-            <div className="flex bg-slate-950 border border-slate-800 rounded-xl p-1 gap-1">
+            {/* Switch de 3 Modos (Distribuido parejo en móviles) */}
+            <div className="grid grid-cols-3 bg-slate-950 border border-slate-800 rounded-xl p-1 gap-1 w-full sm:w-auto">
               <button
                 onClick={() => setActiveTab('theory')}
-                className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition ${
+                className={`py-2 sm:py-1.5 px-2 rounded-lg text-xs font-semibold text-center transition truncate ${
                   activeTab === 'theory'
-                    ? 'bg-emerald-500 text-slate-950 shadow'
+                    ? 'bg-emerald-500 text-slate-950 font-bold shadow'
                     : 'text-slate-400 hover:text-white'
                 }`}
               >
@@ -70,19 +72,19 @@ export default function App() {
               </button>
               <button
                 onClick={() => setActiveTab('flashcards')}
-                className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition ${
+                className={`py-2 sm:py-1.5 px-2 rounded-lg text-xs font-semibold text-center transition truncate ${
                   activeTab === 'flashcards'
-                    ? 'bg-emerald-500 text-slate-950 shadow'
+                    ? 'bg-emerald-500 text-slate-950 font-bold shadow'
                     : 'text-slate-400 hover:text-white'
                 }`}
               >
-                🃏 Flashcards
+                🃏 Tarjetas
               </button>
               <button
                 onClick={() => setActiveTab('quiz')}
-                className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition ${
+                className={`py-2 sm:py-1.5 px-2 rounded-lg text-xs font-semibold text-center transition truncate ${
                   activeTab === 'quiz'
-                    ? 'bg-emerald-500 text-slate-950 shadow'
+                    ? 'bg-emerald-500 text-slate-950 font-bold shadow'
                     : 'text-slate-400 hover:text-white'
                 }`}
               >
