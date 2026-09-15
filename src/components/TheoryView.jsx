@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-export default function TheoryView({ data, highlightSectionIdx, onStartFlashcards, onStartQuiz }) {
+export default function TheoryView({ data, isRead, onToggleRead, highlightSectionIdx, onStartFlashcards, onStartQuiz }) {
   // Escala de tamaños: 'Normal' | 'Grande' | 'Extra'
   const [fontSizeLevel, setFontSizeLevel] = useState(0);
 
@@ -104,15 +104,18 @@ export default function TheoryView({ data, highlightSectionIdx, onStartFlashcard
         ))}
       </div>
 
-{/* Botones de acción inferior */}
+      {/* Botones de acción inferior con persistencia directa */}
       <div className="space-y-4 pt-6 border-t border-slate-800">
         <button
-          onClick={() => {
-            window.dispatchEvent(new CustomEvent('markTheoryRead', { detail: { classId: data.id } }));
-          }}
-          className="w-full py-3 px-4 bg-emerald-950/40 border border-emerald-500/30 hover:bg-emerald-500/20 text-emerald-400 text-xs sm:text-sm font-semibold rounded-xl transition flex items-center justify-center gap-2"
+          type="button"
+          onClick={onToggleRead}
+          className={`w-full py-3.5 px-4 rounded-xl text-sm font-bold transition flex items-center justify-center gap-2 border cursor-pointer ${
+            isRead
+              ? 'bg-emerald-500/20 border-emerald-500/60 text-emerald-300 hover:bg-rose-950/40 hover:border-rose-800/60 hover:text-rose-300'
+              : 'bg-slate-900 border-slate-700 text-slate-300 hover:border-emerald-500/50 hover:bg-slate-800 hover:text-white'
+          }`}
         >
-          ✓ Marcar Apunte Teórico como Leído
+          {isRead ? '✓ Apunte Teórico Completado (Clic para desmarcar)' : 'Marcar Apunte Teórico como Leído'}
         </button>
 
         <div className="flex flex-col sm:flex-row items-center justify-between gap-3">

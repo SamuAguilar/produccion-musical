@@ -230,9 +230,15 @@ const [highlightSectionIdx, setHighlightSectionIdx] = useState(null);
         ) : (
           /* VISTA 2: Vista Interna de la Clase */
           <div>
-            {activeTab === 'theory' && (
+{activeTab === 'theory' && (
               <TheoryView
                 data={currentClass}
+                isRead={userProgress.classes[currentClass.id]?.theoryRead}
+                onToggleRead={() => {
+                  const currentlyRead = !!userProgress.classes[currentClass.id]?.theoryRead;
+                  const updated = saveClassProgress(currentClass.id, { theoryRead: !currentlyRead });
+                  setUserProgress({ ...updated });
+                }}
                 highlightSectionIdx={highlightSectionIdx}
                 onStartFlashcards={() => setActiveTab('flashcards')}
                 onStartQuiz={() => setActiveTab('quiz')}
