@@ -1,10 +1,32 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
-export default function TheoryView({ data, onStartFlashcards, onStartQuiz }) {
+export default function TheoryView({ data, highlightSectionIdx, onStartFlashcards, onStartQuiz }) {
+  // Escala de tamaños: 'Normal' | 'Grande' | 'Extra'
+  const [fontSizeLevel, setFontSizeLevel] = useState(0);
+
+  const fontSizes = [
+    { label: 'Normal', content: 'text-sm', bullet: 'text-sm', heading: 'text-lg' },
+    { label: 'Grande', content: 'text-base', bullet: 'text-base', heading: 'text-xl' },
+    { label: 'Extra', content: 'text-lg', bullet: 'text-lg', heading: 'text-2xl' }
+  ];
+
+  const currentSize = fontSizes[fontSizeLevel];
+
+  const handleZoomIn = () => setFontSizeLevel(prev => Math.min(prev + 1, fontSizes.length - 1));
+  const handleZoomOut = () => setFontSizeLevel(prev => Math.max(prev - 1, 0));
 
   useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [data?.id]);
+    if (highlightSectionIdx !== null && highlightSectionIdx !== undefined) {
+      const el = document.getElementById(`section-${highlightSectionIdx}`);
+      if (el) {
+        setTimeout(() => {
+          el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }, 100);
+      }
+    } else {
+      window.scrollTo(0, 0);
+    }
+  }, [data?.id, highlightSectionIdx]);
 
   if (!data.sections || data.sections.length === 0) {
     return (
@@ -16,31 +38,60 @@ export default function TheoryView({ data, onStartFlashcards, onStartQuiz }) {
 
   return (
     <div className="max-w-3xl mx-auto space-y-8 text-slate-300">
-      {/* Encabezado */}
+      {/* Encabezado con Botonera de Zoom */}
       <div className="border-b border-slate-800 pb-6">
-        <span className="text-xs font-bold tracking-wider text-emerald-400 uppercase bg-emerald-950/60 border border-emerald-800/60 px-2.5 py-1 rounded-md">
-          Apunte de Estudio • Clase {data.id}
-        </span>
+        <div className="flex items-center justify-between gap-3">
+          <span className="text-xs font-bold tracking-wider text-emerald-400 uppercase bg-emerald-950/60 border border-emerald-800/60 px-2.5 py-1 rounded-md">
+            Apunte de Estudio • Clase {data.id}
+          </span>
+
+          {/* Selector de tamaño de texto A- / A+ */}
+          <div className="flex items-center gap-1 bg-slate-900 border border-slate-800 rounded-xl p-1 select-none">
+            <button
+              onClick={handleZoomOut}
+              disabled={fontSizeLevel === 0}
+              className="w-8 h-7 flex items-center justify-center rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 disabled:opacity-30 disabled:hover:bg-transparent font-bold text-xs transition"
+              title="Achicar texto"
+            >
+              A-
+            </button>
+            <span className="text-[10px] font-mono text-slate-500 px-1">
+              {currentSize.label}
+            </span>
+            <button
+              onClick={handleZoomIn}
+              disabled={fontSizeLevel === fontSizes.length - 1}
+              className="w-8 h-7 flex items-center justify-center rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 disabled:opacity-30 disabled:hover:bg-transparent font-bold text-xs transition"
+              title="Agrandar texto"
+            >
+              A+
+            </button>
+          </div>
+        </div>
+
         <h2 className="text-2xl sm:text-3xl font-bold text-white mt-3">{data.title}</h2>
         <p className="text-sm text-slate-400 mt-2 leading-relaxed">{data.summary}</p>
       </div>
 
-      {/* Secciones de contenido */}
+      {/* Secciones de contenido con tipografía adaptable */}
       <div className="space-y-6">
         {data.sections.map((sec, idx) => (
           <article
             key={idx}
-            className="bg-slate-900/70 border border-slate-800/80 rounded-2xl p-6 space-y-3"
+            id={`section-${idx}`}
+            className={`bg-slate-900/70 border border-slate-800/80 rounded-2xl p-6 space-y-3 transition-all duration-300 ${
+              highlightSectionIdx === idx ? 'highlight-pulse' : ''
+            }`}
           >
-            <h3 className="text-lg font-bold text-white flex items-center gap-2">
+            <h3 className={`${currentSize.heading} font-bold text-white flex items-center gap-2 transition-all`}>
               <span className="text-emerald-400 text-sm font-mono">{idx + 1}.</span>
               {sec.title}
             </h3>
-            <div className="text-sm text-slate-300 leading-relaxed space-y-2 whitespace-pre-line">
+            <div className={`${currentSize.content} text-slate-300 leading-relaxed space-y-2 whitespace-pre-line transition-all`}>
               {sec.content}
             </div>
             {sec.bulletPoints && sec.bulletPoints.length > 0 && (
-              <ul className="list-disc list-inside space-y-1 text-sm text-slate-400 pt-2">
+              <ul className={`list-disc list-inside space-y-1 ${currentSize.bullet} text-slate-400 pt-2 transition-all`}>
                 {sec.bulletPoints.map((bp, bpIdx) => (
                   <li key={bpIdx} className="leading-snug">
                     <strong className="text-slate-200">{bp.label}: </strong>
@@ -53,20 +104,31 @@ export default function TheoryView({ data, onStartFlashcards, onStartQuiz }) {
         ))}
       </div>
 
-      {/* Botones de acción inferior */}
-      <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-6 border-t border-slate-800">
+{/* Botones de acción inferior */}
+      <div className="space-y-4 pt-6 border-t border-slate-800">
         <button
-          onClick={onStartFlashcards}
-          className="w-full sm:w-auto py-3 px-6 bg-slate-800 hover:bg-slate-700 text-white rounded-xl text-sm font-semibold transition"
+          onClick={() => {
+            window.dispatchEvent(new CustomEvent('markTheoryRead', { detail: { classId: data.id } }));
+          }}
+          className="w-full py-3 px-4 bg-emerald-950/40 border border-emerald-500/30 hover:bg-emerald-500/20 text-emerald-400 text-xs sm:text-sm font-semibold rounded-xl transition flex items-center justify-center gap-2"
         >
-          🃏 Practicar con Flashcards
+          ✓ Marcar Apunte Teórico como Leído
         </button>
-        <button
-          onClick={onStartQuiz}
-          className="w-full sm:w-auto py-3 px-6 bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold rounded-xl text-sm transition shadow-lg shadow-emerald-500/20"
-        >
-          📝 Rendir Examen →
-        </button>
+
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-3">
+          <button
+            onClick={onStartFlashcards}
+            className="w-full sm:w-auto py-3 px-6 bg-slate-800 hover:bg-slate-700 text-white rounded-xl text-sm font-semibold transition"
+          >
+            🃏 Practicar con Flashcards
+          </button>
+          <button
+            onClick={onStartQuiz}
+            className="w-full sm:w-auto py-3 px-6 bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold rounded-xl text-sm transition shadow-lg shadow-emerald-500/20"
+          >
+            📝 Rendir Examen →
+          </button>
+        </div>
       </div>
     </div>
   );

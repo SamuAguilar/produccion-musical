@@ -1,8 +1,19 @@
 import React, { useState, useEffect, useCallback } from 'react';
 
-export default function FlashcardView({ cards, title }) {
-  const [currentIndex, setCurrentIndex] = useState(0);
+export default function FlashcardView({ cards, title, initialIndex = 0 }) {
+  const [currentIndex, setCurrentIndex] = useState(initialIndex || 0);
   const [isFlipped, setIsFlipped] = useState(false);
+  const [shouldPulse, setShouldPulse] = useState(false);
+
+  useEffect(() => {
+    if (initialIndex !== undefined && initialIndex !== null) {
+      setCurrentIndex(initialIndex);
+      setIsFlipped(false);
+      setShouldPulse(true);
+      const timer = setTimeout(() => setShouldPulse(false), 2200);
+      return () => clearTimeout(timer);
+    }
+  }, [initialIndex]);
 
   const handleNext = useCallback(() => {
     setIsFlipped(false);
@@ -48,7 +59,7 @@ export default function FlashcardView({ cards, title }) {
         </p>
       </div>
 
-      {/* Contenedor con Perspectiva 3D */}
+{/* Contenedor con Perspectiva 3D */}
       <div
         className="perspective-1000 w-full max-w-full cursor-pointer overflow-hidden py-2"
         onClick={() => setIsFlipped(!isFlipped)}
@@ -58,7 +69,9 @@ export default function FlashcardView({ cards, title }) {
             }`}
         >
           {/* CARA FRONTAL (Pregunta) */}
-          <div className="absolute inset-0 w-full h-full backface-hidden bg-slate-900 border border-slate-800 hover:border-slate-700 rounded-3xl p-6 sm:p-8 flex flex-col justify-between shadow-2xl">
+          <div className={`absolute inset-0 w-full h-full backface-hidden bg-slate-900 border border-slate-800 hover:border-slate-700 rounded-3xl p-6 sm:p-8 flex flex-col justify-between shadow-2xl transition-all duration-300 ${
+            shouldPulse ? 'highlight-pulse' : ''
+          }`}>
             <div className="flex justify-between items-center text-xs font-semibold text-slate-500">
               <span>Tarjeta {currentIndex + 1} de {cards.length}</span>
               <span className="px-2.5 py-1 rounded-md border border-slate-800 text-slate-400 bg-slate-950/50 uppercase tracking-wider text-[11px]">

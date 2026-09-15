@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { saveClassProgress } from '../services/progressService';
 
 export default function QuizView({ questions, title }) {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -24,13 +25,21 @@ export default function QuizView({ questions, title }) {
     }
   };
 
-  const handleNext = () => {
+const handleNext = () => {
     if (currentIndex + 1 < questions.length) {
       setCurrentIndex(prev => prev + 1);
       setSelectedOption(null);
       setIsAnswered(false);
     } else {
       setShowSummary(true);
+      // Guarda automáticamente si aprobó (70% o más) y su puntaje
+      const passed = score >= Math.ceil(questions.length * 0.7);
+      if (title) {
+        // Obtenemos el ID de la clase o se actualiza mediante evento
+        window.dispatchEvent(new CustomEvent('quizCompleted', { 
+          detail: { score, passed } 
+        }));
+      }
     }
   };
 
