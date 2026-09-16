@@ -85,11 +85,11 @@ Poseen una masa superficial mayor que entrega graves profundos, cuerpo armónico
 2. Condensadores de Diafragma Pequeño ('Tipo Lápiz'):
 Su membrana minúscula tiene una inercia de masa casi nula, lo que les permite reaccionar de inmediato ante transitorios de alta velocidad y ofrecer una dispersión polar sumamente consistente. Son ideales para fuentes con ataques punzantes y riqueza en agudos: platillos de batería (Overheads), instrumentos de cuerda punteada y ensambles. Resultan indispensables para técnicas de captura estéreo en pares emparejados (Matched Pairs).`,bulletPoints:[{label:`Diafragma Grande`,text:`Sonido robusto, calidez, bajo ruido de fondo y versatilidad multipatrón para voces.`},{label:`Diafragma Pequeño`,text:`Velocidad absoluta ante transitorios rápidos y precisión milimétrica en platillos y acústicas.`},{label:`Mantenimiento contra Humedad`,text:`La saliva altera la capacitancia de las placas; se deben almacenar con silica gel desecante en su estuche.`}]},{title:`Física Acústica Aplicada: Longitud de Onda y Control en el Bombo`,content:`En el estudio no colocamos elementos por costumbre; las decisiones de producción se rigen por las leyes de la física ondulatoria. Para comprender cómo se mueve la energía en la sala, calculamos la Longitud de Onda mediante la fórmula:
 
-$$\\lambda = \\frac{v}{f}$$
+λ = v / f
 
-Donde $v$ es la velocidad del sonido en el aire (340 m/s) y $f$ es la frecuencia en Hercios. Si tenemos un bombo cuya fundamental resuena en 60 Hz, la longitud de onda de ese sonido mide:
+Donde «v» es la velocidad del sonido en el aire (340 m/s) y «f» es la frecuencia en Hercios. Si tenemos un bombo cuya fundamental resuena en 60 Hz, la longitud de onda de ese sonido mide:
 
-$$\\lambda = \\frac{340}{60} \\approx 5{,}66\\text{ metros}$$
+λ = 340 / 60 ≈ 5,66 metros
 
 La onda tarda más de cinco metros y medio en completar un solo ciclo de compresión y rarefacción. Por eso, cuando colocamos mantas pesadas o túneles de absorción frente al bombo, no estamos 'apagando' el sonido: estamos frenando mecánicamente la velocidad del aire para que la masa molecular de graves no sature violentamente la cápsula del micrófono exterior, garantizando una captura controlada y con pegada seca.`,bulletPoints:[{label:`Cálculo de Lambda`,text:`Longitud de onda = Velocidad de propagación (340 m/s) dividida por la frecuencia.`},{label:`Graves Gigantescos`,text:`A menor frecuencia, mayor dimensión física de la onda acústica en la sala.`},{label:`Función de las Mantas`,text:`Freno y desaceleración molecular para evitar sobrecarga aerodinámica en el transductor.`}]},{title:`Ingeniería de Posicionamiento: La Mezcla Física con un Solo Micrófono`,content:`Un productor entrenado puede entregar una mezcla balanceada sin mover un solo fader en la consola, valiéndose exclusivamente de un micrófono de cinta en Figura de 8 y una disposición geométrica estratégica en la sala:
 
