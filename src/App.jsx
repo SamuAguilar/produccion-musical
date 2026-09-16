@@ -73,7 +73,7 @@ const [highlightSectionIdx, setHighlightSectionIdx] = useState(null);
               ♪
             </div>
             <div>
-              <h1 className="text-base font-bold text-white tracking-wide">AUDIO ACADEMY</h1>
+              <h1 className="text-base font-bold text-white tracking-wide">INSTITUTO</h1>
               <p className="text-[10px] text-slate-400 uppercase tracking-wider">Entrenamiento de Producción</p>
             </div>
           </div>
