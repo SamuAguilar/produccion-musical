@@ -20,6 +20,7 @@ import { clase20 } from './clase20';
 import { clase21 } from './clase21';
 import { clase22 } from './clase22';
 import { clase23 } from './clase23';
+import { clase24 } from './clase24';
 
 export const classesData = {
   2: clase2,
@@ -44,4 +45,5 @@ export const classesData = {
   21: clase21,
   22: clase22,
   23: clase23,
+  24: clase24,
 };
