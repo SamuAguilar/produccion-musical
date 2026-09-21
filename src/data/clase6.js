@@ -27,8 +27,8 @@ export const clase6 = {
       title: "Anatomía de los Patrones Polares Fundamentales",
       content: "El patrón polar es la representación geométrica tridimensional que describe la sensibilidad de la cápsula según la dirección de incidencia de la onda acústica. Dominar su comportamiento permite aislar fuentes, rechazar ruidos parásitos y controlar el equilibrio acústico sin ecualizadores:",
       image: {
-        placeholder: true,
-        comment: "Gráfica comparativa de patrones polares: Omnidireccional (360°), Cardioide (180° rechazo), Hipercardioide (lóbulos laterales) y Figura de 8 (90° rechazo)."
+        url: "/images/clase6/clase6-patrones-polares.webp",
+        comment: "Comparativa de patrones polares: Omnidireccional (360°), Cardioide (rechazo posterior 180°), Hipercardioide (haz estrecho) y Figura de 8 (rechazo lateral 90°)."
       },
       bulletPoints: [
         { label: "Omnidireccional (360°)", text: "Sensibilidad uniforme en todas las direcciones angulares. Ideal para captar cuartetos de cuerdas, coros o mesas redondas donde se requiere integrar la acústica natural de la sala y mantener el contacto visual de los músicos." },
@@ -41,8 +41,8 @@ export const clase6 = {
       title: "La Deformación Frecuencial del Patrón Polar",
       content: "Un principio físico que suele pasarse por alto en el estudio es que los patrones polares de los micrófonos no se mantienen rígidos ni estables a lo largo del espectro: la directividad se deforma y transmuta en función de la frecuencia que incide en la membrana.\n\n• Comportamiento en Graves (ej. 125 Hz): Por la gran longitud de las ondas de baja frecuencia, el diafragma no puede generar suficiente diferencia de presión entre sus caras. En consecuencia, un micrófono cardioide estándar (como el Shure SM58) pierde direccionalidad y se vuelve prácticamente omnidireccional. Los subgraves entran con idéntica facilidad por atrás, por los costados y por el frente.\n• Comportamiento en Agudos (ej. 8 kHz): Al acortarse las longitudes de onda, el cuerpo físico de la cápsula bloquea y sombrea el sonido. El micrófono se vuelve sumamente directivo, cerrando su haz de captación de forma similar a un hipercardioide o un haz láser.\n\nImplicancia Crítica en Vivo y Estudio:\nSi situamos al vocalista cerca del amplificador de bajo eléctrico, el patrón cardioide del micrófono vocal rechazará sin inconvenientes los agudos y el chasquido del bajo. Sin embargo, como el micrófono se vuelve omnidireccional en bajas frecuencias, la fundamental grave del bajo penetrará por la parte trasera de la cápsula sin oposición alguna. El resultado será una pista vocal contaminada con un retumbe pastoso y sucio imposible de separar en la mezcla.",
       image: {
-        placeholder: true,
-        comment: "Diagrama polar de un micrófono cardioide mostrando cómo a 125 Hz se ensancha hacia omni y a 8 kHz se cierra hacia hipercardioide."
+        url: "/images/clase6/clase6-deformacion-frecuencial.webp",
+        comment: "Deformación del patrón polar cardioide: apertura omnidireccional en 125 Hz frente a captación direccional cerrada en 8 kHz."
       },
       bulletPoints: [
         { label: "Fuga de graves traseros", text: "Los micrófonos cardioides no rechazan bajas frecuencias por detrás con la misma eficacia que los medios y agudos." },
@@ -52,6 +52,10 @@ export const clase6 = {
     {
       title: "Escala Logarítmica en Decibeles y Atenuación Angular",
       content: "El oído humano no percibe la intensidad acústica de forma lineal (donde 2 es el doble de 1), sino mediante una escala logarítmica gobernada por el Decibel (dB). Por esta razón, pequeñas variaciones angulares en la colocación de un micrófono provocan caídas drásticas de energía sonora:\n\n• En el Eje (0° / On-Axis): Punto de sensibilidad máxima donde ingresa el 100% de la energía de la señal frontal.\n• En los Costados (90°): En una cápsula cardioide, la señal decae típicamente entre -5 dB y -6 dB. Aunque en números parezca poco, representa una reducción a menos de la mitad de la potencia acústica.\n• El Ángulo Crítico (120°): Zona donde la atenuación alcanza un salto abrupto de hasta -15 dB. Ubicar una fuente contaminante (como el retorno de un monitor o un plato ruidoso) a 120° respecto al eje del micrófono reduce drásticamente su presencia en la toma.\n• Rechazo Posterior (180°): Zona nula en patrones cardioides puros, ideal para apuntar la parte trasera hacia la dirección de donde proviene el ruido principal.\n\nComprender esta atenuación permite aplicar la 'mezcla física': equilibrar instrumentos y silenciar filtraciones en la sala mediante giros milimétricos de soporte, antes de que la señal ingrese al preamplificador.",
+      image: {
+        url: "/images/clase6/clase6-atenuacion-angular.webp",
+        comment: "Caída logarítmica angular en cardioide: 0 dB en eje, -6 dB a 90° y aislamiento crítico de -15 dB en el ángulo de 120°."
+      },
       bulletPoints: [
         { label: "No linealidad", text: "La pérdida de energía en decibeles no responde a pasos proporcionales simétricos." },
         { label: "El punto de 120°", text: "Ángulo estratégico para atenuar hasta -15 dB fuentes secundarias en patrones direccionales." },

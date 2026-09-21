@@ -6,6 +6,10 @@ export const clase3 = {
     {
       title: "El Flujo de Señal Físico en la Sala de Grabación",
       content: "Para tener el control de una sesión y diagnosticar problemas al instante, tenemos que dominar cada punto del recorrido de la señal desde la cabina hasta el software:\n\n1. Micrófono: Es el transductor primario que capta la energía acústica de la voz y genera un voltaje débil (Mic Level).\n2. Patchbay (Pachera): La central de conexiones del estudio donde desembocan todas las líneas físicas de la sala.\n3. Entrada de Micrófono (XLR): Ingresa a la interfaz o preamplificador dedicado para elevar el voltaje a nivel de línea.\n4. Protocolo de Comunicación Digital: El enlace físico e idioma por el cual la interfaz transfiere los paquetes de datos a la computadora. Usamos comúnmente USB para compatibilidad amplia o Thunderbolt para un ancho de banda y velocidad extremos en entornos profesionales.\n5. DAW (Digital Audio Workstation): El software multipista donde la señal digitalizada se graba y procesa.",
+      image: {
+        url: "/images/clase3/clase3-cable-balanceado-fase.webp",
+        comment: "Diagrama del rechazo de modo común (CMRR): polaridad invertida en el conductor frío y cancelación de ruido electromagnético al reinvertirse en el destino."
+      },
       bulletPoints: [
         { label: "Patchbay centralizado", text: "Permite rutear y puentear canales sin tener que conectar y desconectar cables detrás de los racks o consolas." },
         { label: "Protocolos digitales", text: "Thunderbolt y USB gestionan la latencia del buffer de entrada durante la toma." }
@@ -14,6 +18,10 @@ export const clase3 = {
     {
       title: "Medición Técnica: Escala Dorrough y Ganancia Sana",
       content: "Un error habitual en producción es guiarse únicamente por los picos visuales del DAW sin entender la densidad energética. El estándar en los estudios de referencia es el medidor Dorrough (Dorrough Loudness Monitor).\n\nEl punto de calibración estándar para grabar se fija en la escala de -18 dB. La señal vocal debe sostenerse de forma continua dentro de la zona verde (rango de persistencia normal) y reservar un margen de seguridad donde los transitorios más intensos jamás superen un techo de -6 dB de pico.\n\nSi el medidor indica que la señal entra demasiado baja o con riesgo de saturar, la corrección debe aplicarse exclusivamente en la perilla de ganancia del preamplificador físico o de la interfaz. Jamás toquemos el fader del canal en el DAW: mover el fader del software solo cambia el volumen de escucha en monitores, no el nivel real con el que la señal está siendo digitalizada e impresa en el disco.",
+      image: {
+        url: "/images/clase3/clase3-medicion-dorrough.webp",
+        comment: "Escala Dorrough calibrada en -18 dB RMS con zona de persistencia verde y techo de seguridad de picos en -6 dBFS para preservar headroom."
+      },
       bulletPoints: [
         { label: "Referencia Dorrough", text: "Calibrar en escala de -18 dB para asegurar un rango dinámico óptimo." },
         { label: "Margen de seguridad", text: "Mantener la energía en la franja verde y evitar superar los -6 dBFS de pico máximo." },
@@ -23,6 +31,10 @@ export const clase3 = {
     {
       title: "Colorimetría y Topología de Preamplificadores",
       content: "El preamplificador no es un simple potenciómetro de ganancia; su circuitería electrónica 'impregna' de color armónico a la toma. Evaluamos tres perfiles tímbricos fundamentales:\n\n1. Preamplificador de Stock (Transparente): Es el previo integrado de serie en la interfaz. Ofrece una respuesta lineal, cristalina y neutra, ideal si buscamos registrar la fuente exactamente como suena en la sala sin colorear.\n2. Neve 1073 (Color Británico y Armónicos): Clásico indiscutido en la historia del rock y del pop. Introduce saturación armónica musical y peso contundente que rellena los medios-graves. Su selector de ganancia opera por pasos fijos (clics) de 5 dB, lo que condiciona un ajuste escalonado muy característico.\n3. Manley Voxbox (Calidez Valvular): Combina una respuesta suave y orgánica gracias a su circuito a válvulas, que otorga cuerpo y redondez en medios. Se trata de un Channel Strip integral que incorpora preamplificador, ecualizador pasivo y compresor optoelectrónico en un solo chasis.",
+      image: {
+        url: "/images/clase3/clase3-preamps-neve-voxbox.webp",
+        comment: "Comparativa de preamplificadores: Neve 1073 de estado sólido con transformadores y perilla por pasos vs. Manley Voxbox a válvulas con channel strip integral."
+      },
       bulletPoints: [
         { label: "Previos Transparentes", text: "Máxima fidelidad sin distorsión armónica agregada." },
         { label: "Neve 1073", text: "Transformadores de entrada que aportan pegada, textura gruesa y pasos de ganancia de 5 dB." },

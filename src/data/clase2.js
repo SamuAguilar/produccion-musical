@@ -15,6 +15,10 @@ export const clase2 = {
     {
       title: "Las Cuatro Cualidades del Sonido",
       content: "Cada evento sonoro posee una identidad física determinada por cuatro parámetros fundamentales que dictan cómo conviven los instrumentos en la mezcla.",
+      image: {
+        url: "/images/clase2/clase2-espectro-audible.webp",
+        comment: "Diagrama del espectro audible humano de 20 Hz a 20 kHz con bandas tonales (sub, graves, medios, agudos) y zona de enmascaramiento."
+      },
       bulletPoints: [
         { label: "Frecuencia (Altura)", text: "Medida en Hercios (Hz). Define si un tono es grave, medio o agudo. El espectro audible humano sano abarca desde 20 Hz hasta 20.000 Hz (20 kHz)." },
         { label: "Enmascaramiento Espectral", text: "Ocurre cuando dos fuentes compiten en el mismo rango de frecuencias con alta energía (ej. bombo y bajo), haciendo que una tape a la otra." },
@@ -26,6 +30,10 @@ export const clase2 = {
     {
       title: "El Recorrido del Flujo de Señal (Signal Flow)",
       content: "Comprender la transformación de la energía desde la fuente hasta la computadora es mandatorio para diagnosticar fallos técnicos y optimizar la fidelidad de captura.",
+      image: {
+        url: "/images/clase2/clase2-flujo-senal.webp",
+        comment: "Esquema en bloques de la cadena de ganancia y conversión: Presión Acústica -> Mic Level -> Preamp -> Line Level -> Conversor A/D -> DAW."
+      },
       bulletPoints: [
         { label: "1. Fuente Sonora", text: "Generación de energía acústica en el aire (voz, instrumento)." },
         { label: "2. Micrófono (Transductor)", text: "Convierte la vibración acústica del aire en una señal eléctrica de bajo voltaje (Mic Level)." },
@@ -35,9 +43,13 @@ export const clase2 = {
         { label: "6. Monitoreo", text: "Conversión D/A inversa que restituye la señal a impulsos eléctricos para mover los monitores o auriculares." }
       ]
     },
-    {
+{
       title: "Tipologías de Micrófonos en el Estudio",
       content: "La elección del transductor condiciona la respuesta en frecuencia y la tolerancia dinámica de la captura.",
+      image: {
+        url: "/images/clase2/clase2-tipos-microfonos.webp",
+        comment: "Comparativa de diafragmas: cápsula de bobina móvil dinámica, placas de condensador con circuito fantasma +48V y cinta corrugada de aluminio."
+      },
       bulletPoints: [
         { label: "Dinámicos", text: "Mecánicamente robustos y resistentes a presiones sonoras muy elevadas (SPL); estándar en escenarios, redoblantes y amplificadores de guitarra." },
         { label: "De Condensador", text: "Altamente sensibles, rápidos y detallados en transitorios; estándar para voces e instrumentos acústicos, requiriendo Phantom Power (+48V) para polarizarse." },
@@ -55,6 +67,11 @@ export const clase2 = {
     {
       title: "Técnica Microfónica y Posicionamiento Vocal",
       content: "La interacción física entre el intérprete y la cápsula define la limpieza acústica de la toma antes de recurrir a procesos correctivos.",
+            image: {
+        placeholder: false,
+        url: "/images/clase2/clase2-posicionamiento-vocal.webp",
+        caption: "Esquema de distancia de trabajo (10-20 cm), filtro antipop y angulación diagonal de la cápsula respecto a la boca."
+      },
       bulletPoints: [
         { label: "Distancia de Trabajo", text: "Entre 10 y 20 cm de la cápsula para equilibrar el efecto de proximidad con el aire de la sala." },
         { label: "Eje y Angulación", text: "Alinear el micrófono a la altura de los ojos e inclinarlo sutilmente hacia la boca para que el flujo de plosivas (P, B) no golpee perpendicularmente el diafragma." },
@@ -334,14 +351,9 @@ export const clase2 = {
       front: "¿Para qué se utiliza un canal Bus?",
       back: "Para juntar varias señales relacionadas (por ejemplo, todos los micrófonos de la batería) y procesarlas con un solo juego de faders y plugins."
     },
-    {
+{
       front: "¿Cuál es la distancia recomendada para grabar voces?",
       back: "Entre 10 y 20 cm respecto a la cápsula, manteniendo control de tono y rango dinámico.",
-      image: {
-        placeholder: true,
-        url: "",
-        caption: "Separación y distancia de trabajo vocal frente a la cápsula."
-      }
     },
     {
       front: "¿Cómo ayuda angular el micrófono a la altura de los ojos frente a las plosivas?",

@@ -50,8 +50,8 @@ export const clase7 = {
       title: "Estrategias de Sala: Cancelación Física sin Plugins",
       content: "Un productor de criterio utiliza la orientación espacial de los micrófonos para resolver problemas de captura antes de recurrir a ecualizadores o compuertas digitales:\n\nEscenario 1: Registro Simultáneo de Voz y Guitarra Acústica\nCuando un cantautor ejecuta su instrumento y canta a la vez, el micrófono vocal absorbe inevitablemente el sangrado brillante de la guitarra. La solución técnica consiste en montar un micrófono con patrón en Figura de 8 para la voz. Se orienta el eje frontal (0°) a la boca del intérprete y se calibran los laterales ciegos (90° y 270°) apuntando perpendicularmente hacia la boca de la guitarra. El rechazo lateral del patrón elimina casi por completo la señal de la guitarra en la pista de voz.\n\nEscenario 2: Sonido en Vivo y Supresión de Acoples (Feedback)\nEl acople se produce cuando la señal reamplificada por el monitor de suelo reingresa a la cápsula del micrófono generando un bucle oscilante infinito. Para evitarlo, el monitor debe situarse enfrentado de forma directa al ángulo de rechazo nulo del micrófono. Si el vocalista utiliza un transductor cardioide, la cuña de suelo debe ubicarse exactamente a sus pies apuntando a la parte trasera del micrófono (180°).",
       image: {
-        placeholder: true,
-        comment: "Esquema de microfoneo simultáneo: Micrófono en Figura de 8 para voz con sus puntos nulos de 90° orientados hacia la guitarra acústica."
+        url: "/images/clase7/clase7-aislamiento-voz-guitarra.webp",
+        comment: "Aislamiento físico: uso del lateral ciego (rechazo de 90°) de la Figura de 8 para cancelar la guitarra acústica en el canal de voz."
       },
       bulletPoints: [
         { label: "Aislamiento Acústico en Voz/Guitarra", text: "Aprovechar la zona muerta de 90° de la Figura de 8 para suprimir la guitarra de la pista vocal." },
@@ -61,6 +61,10 @@ export const clase7 = {
     {
       title: "Cajas Directas (DI Boxes) y Desacoplo de Impedancias",
       content: "En el entorno del estudio, la Caja Directa (DI Box o Direct Injection) cumple la función crítica de transformar señales de alta impedancia (Hi-Z, procedentes de pastillas de guitarra o bajo) e instrumentos no balanceados en señales balanceadas de baja impedancia (Low-Z), compatibles con las entradas de micrófono de la consola o interfaz:\n\n• Cajas Directas Pasivas: Construidas sobre un transformador magnético pasivo. No necesitan pilas ni Phantom Power. Son ideales para fuentes que ya entregan un nivel eléctrico potente o poseen circuitos activos (sintetizadores, teclados, bajos activos con batería de 9V). El transformador satura musicalmente ante niveles muy altos.\n• Cajas Directas Activas: Incorporan un circuito preamplificador a transistores o amplificadores operacionales que requiere alimentación eléctrica (Phantom Power +48V o batería interna). Ofrecen una impedancia de entrada sumamente alta, indispensable para no degradar ni opacar las frecuencias agudas de instrumentos con pastillas pasivas tradicionales (bajos vintage, guitarras electroacústicas).",
+      image: {
+        url: "/images/clase7/clase7-caja-directa-activa-pasiva.webp",
+        comment: "Comparativa funcional: Caja Directa pasiva por transformador para fuentes activas vs. Caja Directa activa con +48V para pastillas pasivas."
+      },
       bulletPoints: [
         { label: "Acoplamiento de Impedancia", text: "Transforma señales Hi-Z de instrumentos en Low-Z de micrófono para el preamplificador." },
         { label: "DI Pasiva", text: "Aislamiento por transformador sin alimentación externa para instrumentos activos." },
@@ -71,8 +75,8 @@ export const clase7 = {
       title: "Control de Parásitos: Bucle de Masa, Arañas y Filtros",
       content: "Para preservar la pureza de la señal frente a ruidos parásitos mecánicos y eléctricos, recurrimos a herramientas de blindaje físico:\n\n• Interruptor Ground Lift (Desconexión de Masa):\nAl interconectar equipos conectados a distintas tomas eléctricas de red, se produce una diferencia de potencial que genera un Bucle de Tierra (Ground Loop), audible como un zumbido parásito continuo de 50 Hz o 60 Hz. El conmutador Ground Lift desconecta internamente la tierra del Pin 1 del conector XLR, quebrando el lazo de corriente y eliminando el zumbido de red en el acto.\n\n• Montura Antivibratoria (Shock Mount / 'Araña'):\nLos micrófonos de condensador son hipersensibles al 'Rumble' (vibraciones mecánicas de baja frecuencia transmitidas por el suelo mediante pasos o el retumbe de amplificadores). La araña suspende el chasis del micrófono en bandas elásticas desacopladas, absorbiendo la energía cinética y variando la frecuencia de resonancia para impedir que el golpe estructural excite la cápsula.\n\n• Filtro Antipop como Escudo Preventivo:\nAdemás de dispersar aerodinámicamente la energía de las consonantes oclusivas (P, B), el filtro antipop actúa como una barrera higiénica innegociable. Evita que las microgotas de saliva proyectadas por el intérprete alcancen la cápsula, protegiendo las láminas microscópicas de oro del condensador de la oxidación, corrosión y pérdida de polarización electrostática.",
       image: {
-        placeholder: true,
-        comment: "Esquema funcional de un Shock Mount elástico aislando el micrófono de vibraciones mecánicas y detalle del conmutador Ground Lift en una DI."
+        url: "/images/clase7/clase7-shockmount-groundlift.webp",
+        comment: "Aislamiento mecánico y eléctrico: absorción de vibraciones por el shock mount y corte de bucles de tierra mediante el botón Ground Lift."
       },
       bulletPoints: [
         { label: "Bucle de Tierra (Ground Loop)", text: "Zumbido de 50/60 Hz suprimido al desconectar el Pin 1 con el botón Ground Lift." },

@@ -6,6 +6,10 @@ export const clase5 = {
     {
       title: "La Curva de Respuesta en Frecuencia: El Mapa Sonoro",
       content: "Elegir un micrófono no es una cuestión de intuición ni de marcas caras; es una decisión técnica fundada en la física acústica. Cada transductor reacciona de manera distinta ante el espectro audible (20 Hz a 20.000 Hz), y esa conducta queda registrada en su Curva de Respuesta en Frecuencia.\n\nAl analizar esta gráfica técnica observamos dos ejes indispensables:\n• Eje X (Horizontal): Mapea las frecuencias en escala logarítmica; a la izquierda los graves profundos, al centro el rango medio y a la derecha los agudos.\n• Eje Y (Vertical): Mide la sensibilidad relativa en decibeles (dB). Cuando la curva transita de forma lineal sobre el valor cero, estamos ante una respuesta plana, lo que significa que el micrófono capta la realidad acústica con neutralidad y fidelidad absoluta.\n\nSi la curva muestra una elevación intencional (comúnmente situada entre los 4 kHz y los 6 kHz), nos encontramos frente a un 'Pico de Presencia' diseñado por el fabricante para dar claridad, articulación y brillo a la voz sin requerir ecualización externa. Por el contrario, una depresión o caída en los extremos indica atenuación; por ejemplo, un roll-off en graves para evitar que vibraciones mecánicas o ruidos de suelo ensucien la captura. Saber leer este mapa nos permite anticipar el timbre exacto de una toma antes de encender la interfaz.",
+      image: {
+        url: "/images/clase5/clase5-curva-frecuencia.webp",
+        comment: "Comparación esquemática: respuesta plana en 0 dB (fidelidad lineal) frente a curva con pico de presencia en 5 kHz."
+      },
       bulletPoints: [
         { label: "Respuesta Plana", text: "Fidelidad lineal en 0 dB; registra el instrumento tal como resuena en la sala sin colorear." },
         { label: "Pico de Presencia", text: "Realce en medios-agudos (~5 kHz) para asegurar inteligibilidad vocal y ayudar a cortar la mezcla." },
@@ -42,6 +46,10 @@ export const clase5 = {
     {
       title: "Física Acústica Aplicada: Longitud de Onda y Control en el Bombo",
       content: "En el estudio no colocamos elementos por costumbre; las decisiones de producción se rigen por las leyes de la física ondulatoria. Para comprender cómo se mueve la energía en la sala, calculamos la Longitud de Onda mediante la fórmula:\n\nλ = v / f\n\nDonde «v» es la velocidad del sonido en el aire (340 m/s) y «f» es la frecuencia en Hercios. Si tenemos un bombo cuya fundamental resuena en 60 Hz, la longitud de onda de ese sonido mide:\n\nλ = 340 / 60 ≈ 5,66 metros\n\nLa onda tarda más de cinco metros y medio en completar un solo ciclo de compresión y rarefacción. Por eso, cuando colocamos mantas pesadas o túneles de absorción frente al bombo, no estamos 'apagando' el sonido: estamos frenando mecánicamente la velocidad del aire para que la masa molecular de graves no sature violentamente la cápsula del micrófono exterior, garantizando una captura controlada y con pegada seca.",
+      image: {
+        url: "/images/clase5/clase5-longitud-onda-bombo.webp",
+        comment: "Física acústica del bombo: longitud de onda de 5,66 metros a 60 Hz y frenado del flujo de aire con manta acústica."
+      },
       bulletPoints: [
         { label: "Cálculo de Lambda", text: "Longitud de onda = Velocidad de propagación (340 m/s) dividida por la frecuencia." },
         { label: "Graves Gigantescos", text: "A menor frecuencia, mayor dimensión física de la onda acústica en la sala." },
@@ -58,13 +66,29 @@ export const clase5 = {
       ]
     },
     {
-      title: "Configuraciones Estéreo y Técnica Vocal de Escenario",
-      content: "Para registrar planos estéreo coherentes y dominar el sonido en vivo, aplicamos criterios geométricos estrictos:\n\nArreglos Estéreo Fundamentales:\n• Técnica A/B: Dos micrófonos en paralelo separados a una distancia fija; genera gran amplitud a costa de posibles desfases si no se calibra.\n• Técnica X/Y (Coincidente): Dos cápsulas cruzadas en un ángulo de 90° situadas una justo sobre la otra; garantiza compatibilidad mono y elimina cancelaciones de fase.\n• Técnica ORTF: Cápsulas orientadas hacia afuera en ángulo de 110° a 120° con una separación de 17 cm entre ellas, emulando la distancia interaural humana para una imagen espacial hiperrealista.\n\nTécnica de Escenario: El 'Punto de Morán':\nAl utilizar micrófonos dinámicos cardioides en vivo (como el Shure SM58), la cápsula no debe apuntar perpendicular a los labios. Debe orientarse hacia el Punto de Morán, ubicado en el paladar justo detrás de los incisivos frontales superiores. Esta angulación ascendente utiliza la bóveda del paladar como resonador natural para proyectar la energía de la voz directamente a la membrana. Al mismo tiempo, hace que la parte trasera del micrófono (la zona de 180° de máximo rechazo polar) apunte directo al monitor de suelo, impidiendo la entrada de retroalimentación acústica y eliminando acoples en el show.",
+      title: "Configuraciones Estéreo Fundamentales (XY, ORTF y AB)",
+      content: "Para registrar planos estéreo coherentes y evitar cancelaciones de fase en la mezcla, aplicamos criterios geométricos estrictos entre las cápsulas:\n\n• Técnica X/Y (Coincidente): Dos micrófonos cruzados en ángulo exacto de 90° situados uno sobre el otro; garantiza compatibilidad mono total y elimina desfases de tiempo.\n• Técnica ORTF: Cápsulas orientadas hacia afuera en ángulo de 110° a 120° con una separación fija de 17 cm, emulando la distancia interaural humana para una imagen espacial hiperrealista.\n• Técnica A/B: Dos micrófonos en paralelo separados a una distancia amplia; genera gran sensación de apertura a costa de posibles cancelaciones si no se mide adecuadamente.",
+      image: {
+        url: "/images/clase5/clase5-tecnicas-estereo.webp",
+        comment: "Geometría de microfonía estéreo: coincidente X/Y (90°), par ORTF (120° y 17 cm) y par espaciado A/B."
+      },
       bulletPoints: [
-        { label: "Técnica X/Y", text: "Cápsulas a 90° coincidentes; estabilidad de fase y consistencia estéreo." },
-        { label: "Técnica ORTF", text: "Separación de 17 cm y apertura de 110-120°; sensación de espacialidad binaural." },
-        { label: "Punto de Morán", text: "Dirección hacia el paladar superior para canalizar la voz y orientar el rechazo polar hacia el monitor." },
-        { label: "On-Axis vs. Off-Axis", text: "Apuntar al centro aporta brillo y transitorio; inclinar hacia el borde suaviza frecuencias ásperas." }
+        { label: "Técnica X/Y", text: "Cápsulas a 90° coincidentes; estabilidad de fase absoluta y compatibilidad mono." },
+        { label: "Técnica ORTF", text: "Separación de 17 cm y apertura de 110-120°; sensación de espacialidad binaural natural." },
+        { label: "Técnica A/B", text: "Paralelos espaciados; máxima amplitud con riesgo de desfases en el centro." }
+      ]
+    },
+    {
+      title: "Técnica Vocal de Escenario: El 'Punto de Morán' y Rechazo Polar",
+      content: "Al utilizar micrófonos dinámicos cardioides en vivo (como el Shure SM58), la cápsula no debe colocarse horizontal ni apuntar perpendicular a los labios.\n\nDebe orientarse hacia el Punto de Morán, ubicado en el paladar justo detrás de los incisivos frontales superiores. Esta angulación ascendente aprovecha la bóveda del paladar como resonador natural para proyectar toda la energía de la voz hacia el diafragma.\n\nEl beneficio acústico decisivo: al inclinar el micrófono hacia arriba apuntando a la boca, la parte trasera del cuerpo (el ángulo de 180° de máximo rechazo del patrón cardioide) queda apuntando directamente hacia el monitor de piso, impidiendo la entrada de retroalimentación acústica y eliminando acoples en el show.",
+      image: {
+        url: "/images/clase5/clase5-punto-moran-escenario.webp",
+        comment: "El Punto de Morán: angulación hacia el paladar superior y orientación del punto sordo (180°) directo al monitor de piso."
+      },
+      bulletPoints: [
+        { label: "Punto de Morán", text: "Dirección hacia el paladar superior para canalizar la resonancia natural de la voz." },
+        { label: "Rechazo Cardioide", text: "La parte trasera sorda a 180° queda mirando al suelo, cancelando el acople con el monitor." },
+        { label: "On-Axis vs. Off-Axis", text: "Apuntar al centro entrega brillo y transitorio; inclinar al borde suaviza sibilancias ásperas." }
       ]
     }
   ],

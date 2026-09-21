@@ -14,6 +14,10 @@ export const clase4 = {
     {
       title: "Medición Técnica: Escala Dorrough y Ganancia Sana",
       content: "Un error habitual en producción es guiarse únicamente por los picos visuales del DAW sin entender la densidad energética. El estándar en los estudios de referencia es el medidor Dorrough (Dorrough Loudness Monitor).\n\nEl punto de calibración estándar para grabar se fija en la escala de -18 dB. La señal vocal debe sostenerse de forma continua dentro de la zona verde (rango de persistencia normal) y reservar un margen de seguridad donde los transitorios más intensos jamás superen un techo de -6 dB de pico.\n\nSi el medidor indica que la señal entra demasiado baja o con riesgo de saturar, la corrección debe aplicarse exclusivamente en la perilla de ganancia del preamplificador físico o de la interfaz. Jamás toquemos el fader del canal en el DAW: mover el fader del software solo cambia el volumen de escucha en monitores, no el nivel real con el que la señal está siendo digitalizada e impresa en el disco.",
+      image: {
+        url: "/images/clase4/clase4-medicion-dorrough.webp",
+        comment: "Escala Dorrough: nivel de señal promedio sostenido en la zona verde (-18 dB) y picos contenidos por debajo de -6 dB."
+      },
       bulletPoints: [
         { label: "Referencia Dorrough", text: "Calibrar en escala de -18 dB para asegurar un rango dinámico óptimo." },
         { label: "Margen de seguridad", text: "Mantener la energía en la franja verde y evitar superar los -6 dBFS de pico máximo." },
@@ -40,6 +44,10 @@ export const clase4 = {
     {
       title: "Técnica Vocal en Cabina, Monitoreo y Talkback",
       content: "Ningún preamplificador de boutique compensa una mala técnica frente al diafragma. El control del sonido comienza con la postura física y el confort del artista:\n\n• Gestión Dinámica Corporal: El cantante debe alejarse unos centímetros hacia atrás en pasajes intensos o estribillos y aproximarse en estrofas íntimas o susurros. Esto ayuda mecánicamente al preamplificador a mantener un nivel de señal estable.\n• Posicionamiento e Inclinación: Colocamos el micrófono de condensador a la altura de los ojos, inclinado ligeramente hacia abajo apuntando a la boca. Esta angulación desvía las ráfagas de aire de las consonantes plosivas (P, B) por debajo del diafragma, evitando ruidos de choque.\n• Filtro Antipop: Cumple una función de dispersión aerodinámica y un rol higiénico crítico: actuar como escudo contra la saliva, protegiendo las placas de condensador de la corrosión molecular.\n• Talkback y Monitoreo: El canal de Talkback nos permite comunicarnos desde el control con la cabina. La regla de oro es mutear el Talkback antes de dar 'Record' para evitar que ruidos de la consola se filtren en la toma. Asimismo, el cantante debe tener su propia mezcla balanceada de auriculares para rendir con comodidad.",
+      image: {
+        url: "/images/clase4/clase4-tecnica-vocal-cabina.webp",
+        comment: "Disposición en cabina: distancia de 15 cm, filtro antipop y micrófono angulado apuntando hacia abajo desde la altura de los ojos."
+      },
       bulletPoints: [
         { label: "Dinámica física", text: "Ajustar la distancia corporal según la intensidad para regular la presión sonora." },
         { label: "Angulación elevada", text: "Desvía plosivas mecánicas y preserva la claridad del registro." },
@@ -49,6 +57,10 @@ export const clase4 = {
     {
       title: "Tipologías de Micrófonos: Dinámicos, Condensador y Cinta",
       content: "La elección del transductor condiciona la respuesta a transitorios y la textura de la toma:\n\n1. Dinámicos (Bobina Móvil): Funcionan mediante una membrana solidaria a una bobina de cobre sumergida en un campo magnético. Son robustos, toleran niveles de presión sonora (SPL) muy altos sin romperse y no requieren alimentación eléctrica externa (con excepciones activas como el Aston Element). Estándar en cajas, amplificadores y directos.\n2. De Condensador (Capacitivos): Emplean dos placas metálicas muy próximas formando un condensador electrostático. Son ultrarrápidos en transitorios y detallados en agudos. Exigen alimentación Phantom Power (+48V) para polarizarse y energizar su previo interno. Estándar en voces principales (ej. Neumann U87, AKG C414, Rode NT1).\n3. De Cinta (Ribbon): Suspenden un filamento corrugado de aluminio dentro de un campo magnético. Brindan una respuesta sedosa y lineal muy similar a la curva de audición humana, eliminando asperezas. Los modelos pasivos (como el Royer R-121) son sumamente delicados: jamás activemos +48V en un micrófono de cinta pasivo porque la corriente rompería físicamente la lámina. Para evitar accidentes en el instituto se emplean alternativas activas (como el Rode NTR), que integran circuitería protegida.",
+      image: {
+        url: "/images/clase4/clase4-tipos-microfonos-estudio.webp",
+        comment: "Comparativa visual de las tres familias de micrófonos de estudio: Dinámico, Condensador y Cinta."
+      },
       bulletPoints: [
         { label: "Dinámicos", text: "Baja sensibilidad, resistencia a altos SPL, sonido con pegada y cuerpo." },
         { label: "Condensadores", text: "Alta sensibilidad, respuesta rápida en agudos y necesidad obligatoria de +48V." },
