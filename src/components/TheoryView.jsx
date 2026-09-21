@@ -50,6 +50,13 @@ export default function TheoryView({ data, isRead, onToggleRead, highlightSectio
     );
   }
 
+  // Resuelve la URL estática respetando la base de GitHub Pages
+  const resolveImageUrl = (url) => {
+    if (!url) return '';
+    const cleanUrl = url.replace(/^\//, ''); // Quita la barra inicial si existe
+    return `${import.meta.env.BASE_URL}${cleanUrl}`;
+  };
+
   return (
     <div className="max-w-3xl mx-auto space-y-8 text-slate-300">
       {/* Encabezado con Botonera de Zoom de Texto */}
@@ -114,7 +121,7 @@ export default function TheoryView({ data, isRead, onToggleRead, highlightSectio
                 title="Toca o haz clic para ver en pantalla completa"
               >
                 <img
-                  src={sec.image.url}
+                  src={resolveImageUrl(sec.image.url)}
                   alt={sec.image.comment || sec.title}
                   className="w-full h-full object-contain sm:object-cover group-hover:scale-[1.02] transition-transform duration-300"
                   loading="lazy"
@@ -198,7 +205,7 @@ export default function TheoryView({ data, isRead, onToggleRead, highlightSectio
             {/* Contenedor de la imagen a máxima resolución */}
             <div className="overflow-auto p-2 sm:p-4 flex items-center justify-center bg-slate-950/40">
               <img
-                src={zoomedImage.url}
+                src={resolveImageUrl(zoomedImage.url)}
                 alt={zoomedImage.comment || 'Infografía ampliada'}
                 className="max-h-[75vh] w-auto max-w-full object-contain rounded-xl select-none"
               />
