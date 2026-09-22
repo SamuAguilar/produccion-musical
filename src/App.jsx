@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { classesData } from './data';
 import TheoryView from './components/TheoryView';
 import QuizView from './components/QuizView';
@@ -10,9 +10,21 @@ export default function App() {
   const [selectedClassId, setSelectedClassId] = useState(null); // null muestra la galería inicial
   const [activeTab, setActiveTab] = useState('theory'); // 'theory' | 'flashcards' | 'quiz'
   const [isSearchOpen, setIsSearchOpen] = useState(false);
-const [highlightSectionIdx, setHighlightSectionIdx] = useState(null);
+  const [highlightSectionIdx, setHighlightSectionIdx] = useState(null);
   const [targetCardIdx, setTargetCardIdx] = useState(null);
   const [userProgress, setUserProgress] = useState(getProgress());
+
+  // Sincronización con el botón Atrás del celular y navegador
+  useEffect(() => {
+    const handlePopState = () => {
+      if (selectedClassId !== null) {
+        setSelectedClassId(null);
+      }
+    };
+
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, [selectedClassId]);
 
   // Escuchar eventos automáticos de completado
   React.useEffect(() => {
@@ -55,18 +67,24 @@ const [highlightSectionIdx, setHighlightSectionIdx] = useState(null);
   const currentClass = selectedClassId ? classesData[selectedClassId] : null;
 
   const handleSelectClass = (id) => {
+    if (!selectedClassId) {
+      window.history.pushState({ classOpen: true }, '');
+    }
     setSelectedClassId(Number(id));
     setActiveTab('theory'); // Al entrar a una clase, inicia siempre en Teoría
+  };
+
+  const handleBackToGallery = () => {
+    window.history.back();
   };
 
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col font-sans">
       {/* Barra superior de navegación */}
-      {/* Barra superior de navegación */}
       <header className="border-b border-slate-800 bg-slate-900/80 backdrop-blur sticky top-0 z-30 px-4">
         <div className="max-w-5xl mx-auto py-3.5 flex flex-wrap justify-between items-center gap-3">
           <div
-            onClick={() => setSelectedClassId(null)}
+            onClick={handleBackToGallery}
             className="flex items-center gap-3 cursor-pointer group"
           >
             <div className="w-8 h-8 rounded-lg bg-emerald-500 flex items-center justify-center font-black text-slate-950 text-lg group-hover:scale-105 transition">
@@ -93,66 +111,69 @@ const [highlightSectionIdx, setHighlightSectionIdx] = useState(null);
               <div className="flex items-center gap-2 w-full sm:w-auto">
                 {/* Botón para volver a la galería */}
                 <button
-                  onClick={() => setSelectedClassId(null)}
+                  onClick={handleBackToGallery}
                   className="shrink-0 text-xs bg-slate-800 hover:bg-slate-700 text-slate-300 px-3 py-2 rounded-xl border border-slate-700 transition"
                 >
                   ← Galería
                 </button>
 
-{/* Selector directo de clase */}
-              <select
-                value={selectedClassId}
-                onChange={(e) => handleSelectClass(e.target.value)}
-                className="flex-1 sm:w-48 bg-slate-800 border border-slate-700 text-white text-xs rounded-xl px-2.5 py-2 outline-none focus:border-emerald-500 transition cursor-pointer truncate"
-              >
-                {Object.keys(classesData).map((id) => (
-                  <option key={id} value={id}>
-                    Clase {id}: {classesData[id].title.slice(0, 20)}...
-                  </option>
-                ))}
-              </select>
+                {/* Selector directo de clase */}
+                <select
+                  value={selectedClassId}
+                  onChange={(e) => handleSelectClass(e.target.value)}
+                  className="flex-1 sm:w-48 bg-slate-800 border border-slate-700 text-white text-xs rounded-xl px-2.5 py-2 outline-none focus:border-emerald-500 transition cursor-pointer truncate"
+                >
+                  {Object.keys(classesData).map((id) => (
+                    <option key={id} value={id}>
+                      Clase {id}: {classesData[id].title.slice(0, 20)}...
+                    </option>
+                  ))}
+                </select>
 
-              {/* Botón para reiniciar progreso de la clase actual */}
-              <button
-                onClick={() => {
-                  if (window.confirm(`¿Reiniciar el progreso de la Clase ${selectedClassId}?`)) {
-                    const updated = resetProgress(selectedClassId);
-                    setUserProgress({ ...updated });
-                  }
-                }}
-                className="shrink-0 p-2 text-slate-500 hover:text-rose-400 bg-slate-900 border border-slate-800 hover:border-rose-900/50 rounded-xl transition text-xs"
-                title="Reiniciar progreso de esta clase"
-              >
-                ↺
-              </button>
-            </div>
+                {/* Botón para reiniciar progreso de la clase actual */}
+                <button
+                  onClick={() => {
+                    if (window.confirm(`¿Reiniciar el progreso de la Clase ${selectedClassId}?`)) {
+                      const updated = resetProgress(selectedClassId);
+                      setUserProgress({ ...updated });
+                    }
+                  }}
+                  className="shrink-0 p-2 text-slate-500 hover:text-rose-400 bg-slate-900 border border-slate-800 hover:border-rose-900/50 rounded-xl transition text-xs"
+                  title="Reiniciar progreso de esta clase"
+                >
+                  ↺
+                </button>
+              </div>
 
               {/* Switch de 3 Modos (Distribuido parejo en móviles) */}
               <div className="grid grid-cols-3 bg-slate-950 border border-slate-800 rounded-xl p-1 gap-1 w-full sm:w-auto">
                 <button
                   onClick={() => setActiveTab('theory')}
-                  className={`py-2 sm:py-1.5 px-2 rounded-lg text-xs font-semibold text-center transition truncate ${activeTab === 'theory'
-                    ? 'bg-emerald-500 text-slate-950 font-bold shadow'
-                    : 'text-slate-400 hover:text-white'
-                    }`}
+                  className={`py-2 sm:py-1.5 px-2 rounded-lg text-xs font-semibold text-center transition truncate ${
+                    activeTab === 'theory'
+                      ? 'bg-emerald-500 text-slate-950 font-bold shadow'
+                      : 'text-slate-400 hover:text-white'
+                  }`}
                 >
                   📖 Teoría
                 </button>
                 <button
                   onClick={() => setActiveTab('flashcards')}
-                  className={`py-2 sm:py-1.5 px-2 rounded-lg text-xs font-semibold text-center transition truncate ${activeTab === 'flashcards'
-                    ? 'bg-emerald-500 text-slate-950 font-bold shadow'
-                    : 'text-slate-400 hover:text-white'
-                    }`}
+                  className={`py-2 sm:py-1.5 px-2 rounded-lg text-xs font-semibold text-center transition truncate ${
+                    activeTab === 'flashcards'
+                      ? 'bg-emerald-500 text-slate-950 font-bold shadow'
+                      : 'text-slate-400 hover:text-white'
+                  }`}
                 >
                   🃏 Tarjetas
                 </button>
                 <button
                   onClick={() => setActiveTab('quiz')}
-                  className={`py-2 sm:py-1.5 px-2 rounded-lg text-xs font-semibold text-center transition truncate ${activeTab === 'quiz'
-                    ? 'bg-emerald-500 text-slate-950 font-bold shadow'
-                    : 'text-slate-400 hover:text-white'
-                    }`}
+                  className={`py-2 sm:py-1.5 px-2 rounded-lg text-xs font-semibold text-center transition truncate ${
+                    activeTab === 'quiz'
+                      ? 'bg-emerald-500 text-slate-950 font-bold shadow'
+                      : 'text-slate-400 hover:text-white'
+                  }`}
                 >
                   📝 Examen
                 </button>
@@ -197,7 +218,8 @@ const [highlightSectionIdx, setHighlightSectionIdx] = useState(null);
                         {item.summary}
                       </p>
                     </div>
-{/* Indicadores de progreso guardado */}
+
+                    {/* Indicadores de progreso guardado */}
                     <div className="flex items-center justify-between text-[11px] font-mono mt-4 pt-3 border-t border-slate-800/80">
                       <div className="flex items-center gap-2">
                         <span className={`px-2 py-0.5 rounded ${
@@ -230,7 +252,7 @@ const [highlightSectionIdx, setHighlightSectionIdx] = useState(null);
         ) : (
           /* VISTA 2: Vista Interna de la Clase */
           <div>
-{activeTab === 'theory' && (
+            {activeTab === 'theory' && (
               <TheoryView
                 data={currentClass}
                 isRead={userProgress.classes[currentClass.id]?.theoryRead}
@@ -264,7 +286,7 @@ const [highlightSectionIdx, setHighlightSectionIdx] = useState(null);
         onClose={() => setIsSearchOpen(false)}
         classesData={classesData}
         onSelectResult={(classId, tab, sectionIdx, cardIdx) => {
-          setSelectedClassId(classId);
+          handleSelectClass(classId);
           setActiveTab(tab);
           setHighlightSectionIdx(sectionIdx !== undefined ? sectionIdx : null);
           setTargetCardIdx(cardIdx !== undefined ? cardIdx : 0);
