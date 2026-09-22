@@ -20,8 +20,8 @@ export const clase10 = {
       title: "Posicionamiento Técnico Superior y Rechazo del Hi-Hat",
       content: "La colocación física de la cápsula actúa como el ecualizador primario y más natural: mover el micrófono un par de centímetros altera drásticamente el contenido tímbrico de la toma.\n\n• Ángulo de 45 Grados: Es la angulación de referencia. Al inclinar la cápsula apuntando hacia el centro del parche, se registra el equilibrio ideal entre el 'ataque' o chasquido seco del golpe de la baqueta y la resonancia del cuerpo.\n• Distancia al Aro: La posición habitual se ubica a unos 2 o 3 dedos (aproximadamente 3 a 5 cm) hacia el interior desde el aro hacia el parche.\n• Efecto de Proximidad: Cuanto más se aproxime la cápsula a la membrana batidora, mayor será el refuerzo en frecuencias bajas (sonido más grueso y con peso), aunque se reduce la captura del aire y la articulación global del instrumento.\n• Seguridad Operativa: El micrófono debe situarse fuera de la trayectoria física del baterista; un golpe que desvíe la cápsula arruinará la consistencia tímbrica entre tomas.\n• Rechazo del Hi-Hat mediante Punto Nulo: Como el SM57 es cardioide, su punto de máximo rechazo (punto nulo) se sitúa exactamente a sus espaldas (180°). El técnico debe orientar la parte trasera del micrófono apuntando directamente hacia el Hi-Hat. De esta manera, el sangrado del platillo queda atenuado mecánicamente en el canal del redoblante.\n• Montura por Clips (Ganchos de Aro): Para evitar la acumulación de trípodes y pies de micrófono en el suelo que limiten el movimiento de las piernas del músico, se pueden emplear ganchos o mordazas de aro (como los clips Mayapex) que sujetan el micrófono firmemente al hardware del tambor.",
       image: {
-        placeholder: true,
-        comment: "Diagrama cenital del redoblante mostrando el SM57 a 45°, a 3 dedos del aro, y su parte trasera (180°) alineada hacia el Hi-Hat para cancelarlo por punto nulo."
+        url: "/images/clase10/clase10-posicionamiento-rechazo-hihat.webp",
+        comment: "Geometría superior: orientación a 45° del SM57 y aprovechamiento del punto nulo posterior (180°) para cancelar el sangrado del Hi-Hat."
       },
       bulletPoints: [
         { label: "Angulación a 45°", text: "Equilibra el ataque del golpe en el centro con la resonancia periférica del parche." },
@@ -47,8 +47,8 @@ export const clase10 = {
       title: "Gestión de Fase y Polaridad: Física de Micrófonos Enfrentados",
       content: "Este es el concepto físico-técnico más crítico en la captura de percusión. Cuando dos micrófonos apuntan en sentidos opuestos hacia una misma fuente (uno por arriba y otro por abajo), sus cápsulas experimentan el movimiento del aire de forma invertida:\n\n• El Conflicto Mecánico: Al golpear el parche superior con la baqueta, la membrana se desplaza físicamente hacia abajo. El micrófono superior interpreta este movimiento como una compresión positiva de aire (onda hacia arriba). En ese mismo instante exacto, ese desplazamiento empuja el aire alejándolo de la cápsula inferior, registrando una rarefacción o descompresión negativa (onda hacia abajo).\n• Cancelación Destructiva: Si ambas pistas se reproducen simultáneamente sin corregir su relación temporal, las ondas se restan entre sí por oposición de fase. El resultado acústico es un redoblante débil, sin graves, hueco y con un timbre nasal metálico desagradable.\n• La Solución (Inversión de Polaridad): Se debe invertir la Polaridad eléctrica del canal del micrófono inferior mediante el botón de fase en el preamplificador, la interfaz o el software (representado universalmente por el símbolo de un círculo tachado con una barra diagonal: Ø). Al conmutar la polaridad 180°, las dos señales pasan a empujar en la misma dirección, sumando su energía y recuperando el peso grave y la pegada contundente del tambor.\n• Comprobación Auditiva en Mono: Para confirmar la alineación de fase, se deben escuchar ambos canales sumados en Mono en el DAW y pulsar el botón Ø: la posición que entregue mayor volumen, presencia de graves y cuerpo será la posición correcta.",
       image: {
-        placeholder: true,
-        comment: "Esquema de ondas en oposición de fase (Top vs Bottom) y su resultante cancelada frente a la onda sumada al invertir la polaridad (símbolo Ø)."
+        url: "/images/clase10/clase10-fase-polaridad-redoblante.webp",
+        comment: "Física de fase: cancelación por desplazamiento opuesto de aire y recuperación de pegada mediante inversión de polaridad (Ø)."
       },
       bulletPoints: [
         { label: "Mecánica del Golpe", text: "El parche desciende generando compresión positiva arriba y descompresión negativa abajo." },
@@ -61,8 +61,8 @@ export const clase10 = {
       title: "Afinación Visual y Correspondencia Tonal con el Tema",
       content: "Para integrar la batería como un elemento melódico dentro del arreglo y evitar que el redoblante compita o desentone con las armonías de guitarras y teclados, se busca que su frecuencia fundamental coincida con un intervalo clave de la canción:\n\n• Intervalos Armónicos Recomendados: La fundamental del redoblante debe afinarse para coincidir con la Tónica, la Tercera (mayor o menor según el clima) o la Quinta justa de la escala del tema.\n• Afinación Visual mediante Analizador Espectral: Se utiliza el analizador de espectro de alta resolución de un ecualizador digital (como FabFilter Pro-Q 4):\n  1. Detección de la Fundamental: Al golpear el redoblante, observamos el pico resonante más alto ubicado en la zona de medios (Octava 3, entre 180 Hz y 240 Hz).\n  2. Lectura en Frecuencia y Nota: El software muestra tanto el valor exacto en Hercios (Hz) como la nota musical asociada (por ejemplo, La a 220 Hz o Fa# a 185 Hz).\n  3. Calibración Mecánica: Si el analizador indica que el tambor está por debajo de la nota buscada, se ajustan uniformemente los tornillos del parche en cruz hasta que el pico visual coincida exactamente con la frecuencia objetivo.",
       image: {
-        placeholder: true,
-        comment: "Captura de pantalla de FabFilter Pro-Q 4 mostrando el pico de la frecuencia fundamental en 220 Hz (nota La3)."
+        url: "/images/clase10/clase10-afinacion-visual-espectro.webp",
+        comment: "Afinación visual en analizador espectral: calibración del pico fundamental en la Octava 3 (220 Hz / Nota La3)."
       },
       bulletPoints: [
         { label: "Integración Armónica", text: "Afinar la fundamental en la Tónica, Tercera o Quinta de la tonalidad de la canción." },
